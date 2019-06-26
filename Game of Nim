@@ -1,0 +1,16 @@
+The game of NIM is required to have the following 4 functions
+
+def main(): - driver of the program
+Setup the game: number of balls to start (random), mode of computer (random dumb or smart), who goes first (random computer or player)
+play the game after the setup until either the player wins or the computer wins.
+
+def computerDumbMode(ballCount):
+
+def computerSmartMode(ballCount):
+
+def playerTurn(ballCount):
+
+Design the Game of Nim based upon the specifications given. Any design style may be utilized. Save the file as NimDesign
+Use step-wise refinement on the design and separate out tasks into different modules (functions)
+Implement the Game of Nim based upon your design that solves the problem. Name the file NimApp.py
+You must implement the project using functions as designed above
