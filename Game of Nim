@@ -1,43 +1,62 @@
-# The game of NIM is required to have the following 4 functions
 
-def main(): # driver of the program
-  # Import Random int function
-  from random import randint
-  
-  # Determine turn (computer or player)
+def main(): 
 
-    
-  # Setup the game: number of balls to start (random), mode of computer (random dumb or smart), who goes first (random computer or player)
-  play the game after the setup until either the player wins or the computer wins.
+    # Import Random Int and math sqrt Function.
 
-def computerDumbMode(ballCount):
+    from random import randint
 
-  #Determine how many balls to start
+    from math import sqrt
 
-  for computerDumbModeBallCount in range( 3 ) :
-    computerDumbModeBallCount = randint( 10 , 100 )
+    whoGoesFirst = 0
 
-  print( 'Computer Ball Count: ' , int( computerDumbModeBallCount ) )
+    ballCount = 0
 
-def computerSmartMode(ballCount):
-  
-  for computerDumbModeBallCount in range( 3 ) :
-    computerDumbModeBallCount = randint( 10 , 100 )
+    # Determine computer mode (random)
 
-  print( 'Computer Ball Count: ' , int( computerDumbModeBallCount ) ) 
+    computerMode = randint( 0 , 1 )
+
+    # Dumb Mode
+
+    if computerMode == 1 :
+
+        print( '\nDumb Mode \n' )
+
+    # Smart Mode
+
+    else :
+
+        print( '\nSmart Mode \n' )
+
+    # Determine turn Computer or Player (random)
+
+    whoGoesFirst = randint( 0 , 1 )
+
+    # Player goes first
+
+    if whoGoesFirst == 1 :
+
+        print( 'Player goes first.' )
+
+    # Computer goes first
+
+    else : 
+
+        print( 'Computer goes first.' )
+
+    # Determine how many balls to start (random)
+
+    ballCount = randint( 10 , 100 )
+
+    print( 'Ball Count: ', ballCount )
 
 
 
-def playerTurn(ballCount):
+    # Play the game after setup until either player or computer wins.
+    # Loop until 1 ball left
 
-  for playerTurnBallCount in range( 3 ) :
-    playerTurnBallCount = randint( 10 , 100 )
 
-    print( 'Player Ball Count: ' ,'%4d' % int( playerTurnBallCount ) )
-  
-def computer mode (dumb or smart):
+main()
 
-  # Determine computer mode (dumb or smart)
 
 
 Design the Game of Nim based upon the specifications given. Any design style may be utilized. Save the file as NimDesign
