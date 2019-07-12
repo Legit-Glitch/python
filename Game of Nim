@@ -1,18 +1,65 @@
 
-def main(): 
+ddef main(): 
 
-    # Import Random Int and math sqrt Function.
+
+# Functions
+#-------------------------------------------------------------------------------
+# This function will determine who turn it is randomly ( Computer or Player ).
+# First randint will be imported from the random library.
+# Then if it is 1, it will print 'Player goes first'. If it is 0 it will print
+# ' Computer goes first'. Finally the function will return whoGoesFirst
+#-------------------------------------------------------------------------------
+def randomWhoGoesFirst() : # Ryan Miskoviak
 
     from random import randint
 
-    from math import sqrt
+    whoGoesFirst = randint( 0 , 1 )
 
-    whoGoesFirst = 0
+# Player goes first
+    if whoGoesFirst == 1 :
 
-    ballCount = 0
+        print( 'Player goes first.' )
 
-    # Determine computer mode (random)
+# Computer goes first
+    else : 
 
+        print( 'Computer goes first.' )
+
+    return whoGoesFirst
+
+
+
+
+#-------------------------------------------------------------------------------
+# This function will determine the random ball count to start the game.
+# First randint will be imported from the random library.
+# Then a number from 10 - 100 will be randomly selected and it will print
+#  'Ball Count: ' and then display ball count. Finally the function will
+# return ballCount.
+#-------------------------------------------------------------------------------
+def randomBallCount():# Ryan Miskoviak
+
+    from random import randint
+
+    ballCount = randint( 10 , 100 )
+
+    print( 'Ball Count: ', ballCount )
+
+    return ballCount
+
+
+
+
+#-------------------------------------------------------------------------------
+# This function will determine the computer mode randomly ( Dumb or Smart ).
+# First randint will be imported from the random library.
+# Then if it is 1, it will print 'Dumb Mode'. If it is 0 it will print
+# 'Smart Mode'. Finally the function will return computerMode.
+#-------------------------------------------------------------------------------
+def computerMode() : # Ryan Miskoviak
+
+    from random import randint
+    
     computerMode = randint( 0 , 1 )
 
     # Dumb Mode
@@ -27,36 +74,47 @@ def main():
 
         print( '\nSmart Mode \n' )
 
-    # Determine turn Computer or Player (random)
-
-    whoGoesFirst = randint( 0 , 1 )
-
-    # Player goes first
-
-    if whoGoesFirst == 1 :
-
-        print( 'Player goes first.' )
-
-    # Computer goes first
-
-    else : 
-
-        print( 'Computer goes first.' )
-
-    # Determine how many balls to start (random)
-
-    ballCount = randint( 10 , 100 )
-
-    print( 'Ball Count: ', ballCount )
+    return computerMode
+        
 
 
 
-    # Play the game after setup until either player or computer wins.
-    # Loop until 1 ball left
+#-------------------------------------------------------------------------------
+# Play the game after setup until either player or computer wins.
+# Loop until 1 ball left
+#-------------------------------------------------------------------------------
+def gamePlay( whoGoesFirst , computerMode , ballCount ) :# Ryan Miskoviak
 
+    while ballCount >= 1 :
+
+        if whoGoesFirst == 0:
+
+            if computerMode == 1: # dumb mode
+
+    
+                whodoesFirst == 1
+    
+            else: # smart mode
+    
+                call your smart mode function
+
+                whodoesFirst == 1
+
+        else: # player turn
+
+            call your player turn function
+
+            whodoesFirst == 0
+
+    if whoGoesFirst == 1
+
+        print( 'Computer Won!')
+
+    else:
+
+        print( 'You beat the Computer, Congratulations!')
 
 main()
-
 
 
 Design the Game of Nim based upon the specifications given. Any design style may be utilized. Save the file as NimDesign
