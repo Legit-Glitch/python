@@ -47,6 +47,17 @@ def main():
 
   
   
+
+  #-------------------------------------------------------------------------------
+  # This function will define player turn.
+  #-------------------------------------------------------------------------------
+  def playerTurn(ballCount): # Clayton Spielman       
+
+    ballCountString = str(ballCount//2)
+
+    playerTurn = input(print('Enter a Value between 1 and', ballCountString + ':'))
+
+    return playerTurn
   
   #-------------------------------------------------------------------------------
   # This function will define dumb computer mode.
