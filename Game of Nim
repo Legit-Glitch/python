@@ -1,123 +1,154 @@
+def main(): 
 
-ddef main(): 
+  # Functions
+  #-------------------------------------------------------------------------------
+  # This function will determine who turn it is randomly ( Computer or Player ).
+  # First randint will be imported from the random library.
+  # Then if it is 1, it will print 'Player goes first'. If it is 0 it will print
+  # ' Computer goes first'. Finally the function will return whoGoesFirst
+  #-------------------------------------------------------------------------------
+  def randomWhoGoesFirst() : # Ryan Miskoviak
 
+      from random import randint
+  
+      whoGoesFirst = randint( 0 , 1 )
 
-# Functions
-#-------------------------------------------------------------------------------
-# This function will determine who turn it is randomly ( Computer or Player ).
-# First randint will be imported from the random library.
-# Then if it is 1, it will print 'Player goes first'. If it is 0 it will print
-# ' Computer goes first'. Finally the function will return whoGoesFirst
-#-------------------------------------------------------------------------------
-def randomWhoGoesFirst() : # Ryan Miskoviak
+  # Player goes first
+      if whoGoesFirst == 1 :
 
-    from random import randint
+          print( 'Player goes first.' )
 
-    whoGoesFirst = randint( 0 , 1 )
+  # Computer goes first
+      else : 
 
-# Player goes first
-    if whoGoesFirst == 1 :
+          print( 'Computer goes first.' )
 
-        print( 'Player goes first.' )
-
-# Computer goes first
-    else : 
-
-        print( 'Computer goes first.' )
-
-    return whoGoesFirst
+      return whoGoesFirst
 
 
 
 
-#-------------------------------------------------------------------------------
-# This function will determine the random ball count to start the game.
-# First randint will be imported from the random library.
-# Then a number from 10 - 100 will be randomly selected and it will print
-#  'Ball Count: ' and then display ball count. Finally the function will
-# return ballCount.
-#-------------------------------------------------------------------------------
-def randomBallCount():# Ryan Miskoviak
+  #-------------------------------------------------------------------------------
+  # This function will determine the random ball count to start the game.
+  # First randint will be imported from the random library.
+  # Then a number from 10 - 100 will be randomly selected and it will print
+  #  'Ball Count: ' and then display ball count. Finally the function will
+  # return ballCount.
+  #-------------------------------------------------------------------------------
+  def randomBallCount():# Ryan Miskoviak
 
-    from random import randint
+      from random import randint
 
-    ballCount = randint( 10 , 100 )
+      ballCount = randint( 10 , 100 )
 
-    print( 'Ball Count: ', ballCount )
+      print( 'Ball Count: ', ballCount )
 
-    return ballCount
+      return ballCount
 
-
-
-
-#-------------------------------------------------------------------------------
-# This function will determine the computer mode randomly ( Dumb or Smart ).
-# First randint will be imported from the random library.
-# Then if it is 1, it will print 'Dumb Mode'. If it is 0 it will print
-# 'Smart Mode'. Finally the function will return computerMode.
-#-------------------------------------------------------------------------------
-def computerMode() : # Ryan Miskoviak
-
-    from random import randint
+  
+  
+  
+  #-------------------------------------------------------------------------------
+  # This function will define dumb computer mode.
+  #-------------------------------------------------------------------------------
+  def computerDumbMode(ballCount): # Clayton Spielman
     
-    computerMode = randint( 0 , 1 )
+    from random import randint
 
-    # Dumb Mode
+    computerDumbTurn = random.randint(1, ballCount//2)
 
-    if computerMode == 1 :
+    return computerDumbTurn
 
-        print( '\nDumb Mode \n' )
+ 
+ 
+ 
+ #-------------------------------------------------------------------------------
+  # This function will define smart computer mode.
+  #-------------------------------------------------------------------------------
+  def computerSmartMode(ballCount): # Clayton Spielman
 
-    # Smart Mode
+    if ballCount - 3 > 0 and ballCount - 3 < ballCount//2:
+       computerSmartTurn = ballCount - 3
+    
+    elif ballCount - 7 > 0 and ballCount - 7 < ballCount//2:
+       computerSmartTurn = ballCount - 7
+    
+    elif ballCount - 15 > 0 and ballCount - 15 < ballCount//2:
+       computerSmartTurn = ballCount - 15
+    
+    elif ballCount - 31 > 0 and ballCount - 31 < ballCount//2:
+       computerSmartTurn = ballCount - 31
+    
+    else:
+       computerSmartTurn = ballCount - 63
 
-    else :
+    return computerSmartTurn
+ 
+ 
 
-        print( '\nSmart Mode \n' )
 
-    return computerMode
+  #-------------------------------------------------------------------------------
+  # This function will determine the computer mode randomly ( Dumb or Smart ).
+  # First randint will be imported from the random library.
+  # Then if it is 1, it will print 'Dumb Mode'. If it is 0 it will print
+  # 'Smart Mode'. Finally the function will return computerMode.
+  #-------------------------------------------------------------------------------
+  def computerMode() : # Ryan Miskoviak
+
+      from random import randint
+    
+      computerMode = randint( 0 , 1 )
+
+      # Dumb Mode
+
+      if computerMode == 1 :
+
+          print( '\nDumb Mode \n' )
+
+      # Smart Mode
+
+      else :
+
+          print( '\nSmart Mode \n' )
+
+      return computerMode
         
 
 
 
-#-------------------------------------------------------------------------------
-# Play the game after setup until either player or computer wins.
-# Loop until 1 ball left
-#-------------------------------------------------------------------------------
-def gamePlay( whoGoesFirst , computerMode , ballCount ) :# Ryan Miskoviak
+  #-------------------------------------------------------------------------------
+  # Play the game after setup until either player or computer wins.
+  # Loop until 1 ball left
+  #-------------------------------------------------------------------------------
+  def gamePlay( whoGoesFirst , computerMode , ballCount ) :# Ryan Miskoviak
 
-    while ballCount >= 1 :
+      while ballCount >= 1 :
 
-        if whoGoesFirst == 0:
+          if whoGoesFirst == 0:
 
-            if computerMode == 1: # dumb mode
+              if computerMode == 1: # dumb mode
 
     
-                whodoesFirst == 1
+                  whodoesFirst == 1
     
-            else: # smart mode
+              else: # smart mode
     
-                call your smart mode function
+                  call your smart mode function
 
-                whodoesFirst == 1
+                  whodoesFirst == 1
 
-        else: # player turn
+          else: # player turn
 
-            call your player turn function
+              call your player turn function
 
-            whodoesFirst == 0
+              whodoesFirst == 0
 
-    if whoGoesFirst == 1
+      if whoGoesFirst == 1
 
-        print( 'Computer Won!')
+          print( 'Computer Won!')
 
-    else:
+      else:
 
-        print( 'You beat the Computer, Congratulations!')
+          print( 'You beat the Computer, Congratulations!')
 
 main()
-
-
-Design the Game of Nim based upon the specifications given. Any design style may be utilized. Save the file as NimDesign
-Use step-wise refinement on the design and separate out tasks into different modules (functions)
-Implement the Game of Nim based upon your design that solves the problem. Name the file NimApp.py
-You must implement the project using functions as designed above
