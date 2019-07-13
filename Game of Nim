@@ -1,26 +1,25 @@
+def main(): 
 
-ddef main(): 
 
-
-# Functions
-#-------------------------------------------------------------------------------
-# This function will determine who turn it is randomly ( Computer or Player ).
-# First randint will be imported from the random library.
-# Then if it is 1, it will print 'Player goes first'. If it is 0 it will print
-# ' Computer goes first'. Finally the function will return whoGoesFirst
-#-------------------------------------------------------------------------------
-def randomWhoGoesFirst() : # Ryan Miskoviak
+ # Functions
+ #-------------------------------------------------------------------------------
+ # This function will determine who turn it is randomly ( Computer or Player ).
+ # First randint will be imported from the random library.
+ # Then if it is 1, it will print 'Player goes first'. If it is 0 it will print
+ # ' Computer goes first'. Finally the function will return whoGoesFirst
+ #-------------------------------------------------------------------------------
+ def randomWhoGoesFirst() : # Ryan Miskoviak
 
     from random import randint
 
     whoGoesFirst = randint( 0 , 1 )
 
-# Player goes first
+ # Player goes first
     if whoGoesFirst == 1 :
 
         print( 'Player goes first.' )
 
-# Computer goes first
+ # Computer goes first
     else : 
 
         print( 'Computer goes first.' )
@@ -30,14 +29,14 @@ def randomWhoGoesFirst() : # Ryan Miskoviak
 
 
 
-#-------------------------------------------------------------------------------
-# This function will determine the random ball count to start the game.
-# First randint will be imported from the random library.
-# Then a number from 10 - 100 will be randomly selected and it will print
-#  'Ball Count: ' and then display ball count. Finally the function will
-# return ballCount.
-#-------------------------------------------------------------------------------
-def randomBallCount():# Ryan Miskoviak
+ #-------------------------------------------------------------------------------
+ # This function will determine the random ball count to start the game.
+ # First randint will be imported from the random library.
+ # Then a number from 10 - 100 will be randomly selected and it will print
+ #  'Ball Count: ' and then display ball count. Finally the function will
+ # return ballCount.
+ #-------------------------------------------------------------------------------
+ def randomBallCount():# Ryan Miskoviak
 
     from random import randint
 
@@ -47,16 +46,48 @@ def randomBallCount():# Ryan Miskoviak
 
     return ballCount
 
+ # This function will define what computer dumb mode is.
+ 
+ def computerDumbMode(ballCount): # Clayton Spielman
+    
+    from random import randint
 
+    computerTurn = random.randint(1, ballCount//2)
+    
+    return ballCount
+ 
+ #----------------------------------------------------------------------------
+ # This function will define computer smart mode.
+ #----------------------------------------------------------------------------
+ def computerSmartMode(ballCount): # Clayton Spielman
+  
+    if ballCount - 3 > 0 and ballCount - 3 < ballCount//2:
+       computerSmartTurn = ballCount - 3
+    elif ballCount - 7 > 0 and ballCount - 7 < ballCount//2:
+       computerSmartTurn = ballCount - 7
+    elif ballCount - 15 > 0 and ballCount - 15 < ballCount//2:
+       computerSmartTurn = numOfMarbles - 15
+    elif ballCount - 31 > 0 and ballCount - 31 < ballCount//2:
+       computerSmartTurn = numOfMarbles - 31
+    else:
+     computerSmartTurn = ballCount - 63
 
+ #------------------------------------------------------------------------------
+ # This function will define computer dumb mode.
+ #------------------------------------------------------------------------------
+ def computerDumbMode(ballCount): # Clayton Spielman
+    
+    from random import randint
 
-#-------------------------------------------------------------------------------
-# This function will determine the computer mode randomly ( Dumb or Smart ).
-# First randint will be imported from the random library.
-# Then if it is 1, it will print 'Dumb Mode'. If it is 0 it will print
-# 'Smart Mode'. Finally the function will return computerMode.
-#-------------------------------------------------------------------------------
-def computerMode() : # Ryan Miskoviak
+    computerTurn = random.randint(1, ballCount//2)
+
+ #-------------------------------------------------------------------------------
+ # This function will determine the computer mode randomly ( Dumb or Smart ).
+ # First randint will be imported from the random library.
+ # Then if it is 1, it will print 'Dumb Mode'. If it is 0 it will print
+ # 'Smart Mode'. Finally the function will return computerMode.
+ #-------------------------------------------------------------------------------
+ def computerMode() : # Ryan Miskoviak
 
     from random import randint
     
@@ -75,15 +106,12 @@ def computerMode() : # Ryan Miskoviak
         print( '\nSmart Mode \n' )
 
     return computerMode
-        
-
-
-
-#-------------------------------------------------------------------------------
-# Play the game after setup until either player or computer wins.
-# Loop until 1 ball left
-#-------------------------------------------------------------------------------
-def gamePlay( whoGoesFirst , computerMode , ballCount ) :# Ryan Miskoviak
+    
+ #-------------------------------------------------------------------------------
+ # Play the game after setup until either player or computer wins.
+ # Loop until 1 ball left
+ #-------------------------------------------------------------------------------
+ def gamePlay( whoGoesFirst , computerMode , ballCount ) :# Ryan Miskoviak
 
     while ballCount >= 1 :
 
@@ -115,9 +143,3 @@ def gamePlay( whoGoesFirst , computerMode , ballCount ) :# Ryan Miskoviak
         print( 'You beat the Computer, Congratulations!')
 
 main()
-
-
-Design the Game of Nim based upon the specifications given. Any design style may be utilized. Save the file as NimDesign
-Use step-wise refinement on the design and separate out tasks into different modules (functions)
-Implement the Game of Nim based upon your design that solves the problem. Name the file NimApp.py
-You must implement the project using functions as designed above
