@@ -1,5 +1,11 @@
 def main(): 
 
+  # Global Variables
+
+  
+  
+
+
   # Functions
   #-------------------------------------------------------------------------------
   # This function will determine who turn it is randomly ( Computer or Player ).
@@ -25,7 +31,7 @@ def main():
 
       return whoGoesFirst
 
-
+  randomWhoGoesFirst()
 
 
   #-------------------------------------------------------------------------------
@@ -45,41 +51,49 @@ def main():
 
       return ballCount
 
+  randomBallCount()
   
   
 
   #-------------------------------------------------------------------------------
   # This function will define player turn.
   #-------------------------------------------------------------------------------
-  def playerTurn(ballCount): # Clayton Spielman       
+  def playersTurn(randomBallCount): # Clayton Spielman       
 
-    ballCountString = str(ballCount//2)
+    ballCount = randomBallCount()
 
-    playerTurn = input(print('Enter a Value between 1 and', ballCountString + ':'))
+    print('Enter a Value between 1 and', ballCount//2)
+
+    playerTurn = input('Take Your Turn:')
 
     return playerTurn
   
-  
+  playersTurn(randomBallCount)
   
   
   #-------------------------------------------------------------------------------
   # This function will define dumb computer mode.
   #-------------------------------------------------------------------------------
-  def computerDumbMode(ballCount): # Clayton Spielman
+ 
+  def computerDumbMode(randomBallCount): # Clayton Spielman
     
     from random import randint
 
-    computerDumbTurn = random.randint(1, ballCount//2)
+    ballCount = randomBallCount()
+
+    computerDumbTurn = randint(1, ballCount//2)
 
     return computerDumbTurn
 
- 
+  computerDumbMode(randomBallCount)
  
  
   #-------------------------------------------------------------------------------
   # This function will define smart computer mode.
   #-------------------------------------------------------------------------------
-  def computerSmartMode(ballCount): # Clayton Spielman
+  def computerSmartMode(randomBallCount): # Clayton Spielman
+
+    ballCount = randomBallCount()
 
     if ballCount - 3 > 0 and ballCount - 3 < ballCount//2:
        computerSmartTurn = ballCount - 3
@@ -98,7 +112,7 @@ def main():
 
     return computerSmartTurn
  
- 
+  computerSmartMode(randomBallCount)
 
 
   #-------------------------------------------------------------------------------
@@ -107,7 +121,7 @@ def main():
   # Then if it is 1, it will print 'Dumb Mode'. If it is 0 it will print
   # 'Smart Mode'. Finally the function will return computerMode.
   #-------------------------------------------------------------------------------
-  def computerMode() : # Ryan Miskoviak
+  def randomComputerMode() : # Ryan Miskoviak
 
       from random import randint
     
@@ -127,14 +141,26 @@ def main():
 
       return computerMode
         
-
+  randomComputerMode()
 
 
   #-------------------------------------------------------------------------------
   # Play the game after setup until either player or computer wins.
   # Loop until 1 ball left
   #-------------------------------------------------------------------------------
-  def gamePlay( whoGoesFirst , computerMode , ballCount ) :# Ryan Miskoviak
+  def gamePlay(randomWhoGoesFirst, randomComputerMode, randomBallCount, computerDumbMode, playersTurn) :# Ryan Miskoviak
+
+      ballCount = randomBallCount()
+
+      computerMode = randomComputerMode()
+
+      whoGoesFirst = randomWhoGoesFirst()
+
+      computerDumbTurn = computerDumbMode(randomBallCount)
+
+      computerSmartTurn = computerSmartMode (randomBallCount)
+
+      playerTurn = playersTurn(randomBallCount)
 
       while ballCount >= 1 :
 
@@ -142,19 +168,19 @@ def main():
 
               if computerMode == 1: # dumb mode
 
-                  computerDumbMode(ballCount)
+                  computerDumbTurn
                   
                   whoGoesFirst == 1
     
               else: # smart mode
     
-                  computerSmartMode(ballCount)
+                  computerSmartTurn
 
                   whoGoesFirst == 1
 
           else: # player turn
 
-              playerTurn(ballCount)
+              playerTurn
 
               whoGoesFirst == 0
 
@@ -165,5 +191,7 @@ def main():
       else:
 
           print( 'You beat the Computer, Congratulations!')
+
+  gamePlay(randomWhoGoesFirst, randomComputerMode, randomBallCount, computerDumbMode, playersTurn)
 
 main()
